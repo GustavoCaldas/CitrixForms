@@ -33,6 +33,7 @@ namespace SetupVerifyCS
             foreach (string subkey_name in Key1.GetSubKeyNames())
             {
                 RegistryKey subkey = Key1.OpenSubKey(subkey_name);
+                Console.WriteLine(subkey.GetValue("DisplayName"));
                 if(subkey.GetValue("DisplayName") != null)
                 {
                     if (subkey.GetValue("DisplayName").ToString().Contains(this.Softwares[0]))
@@ -51,6 +52,7 @@ namespace SetupVerifyCS
             foreach (string subkey64_name in Key2.GetSubKeyNames())
             {
                 RegistryKey subkey64 = Key2.OpenSubKey(subkey64_name);
+                Console.WriteLine(subkey64.GetValue("DisplayName"));
                 if (subkey64.GetValue("DisplayName") != null)
                 {
                     if (subkey64.GetValue("DisplayName").ToString().Contains(this.Softwares[0]))
