@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.IO;
 
 namespace SetupVerifyCS
 {
@@ -12,6 +13,7 @@ namespace SetupVerifyCS
         public RegistryKey Key1 { get; private set; }
         public RegistryKey Key2 { get; private set; }
         public string[] Softwares { get; private set; }
+
         public Helper(RegistryKey key1, RegistryKey key2)
         {
             this.Key1 = key1;
@@ -22,51 +24,71 @@ namespace SetupVerifyCS
             this.HasZoomPlugin = false;
             this.Softwares = new string[]
             {
-                "Citrix Workspace 1912",
+                "Citrix Workspace",
                 "IDGo 800 Minidriver",
                 "Citrix HDX RealTime Media Engine 2.8",
                 "Zoom Plugin for Citrix Receiver"
             };
         }
+
         public void FindRequiredSoftwares()
         {
             foreach (string subkey_name in Key1.GetSubKeyNames())
             {
                 RegistryKey subkey = Key1.OpenSubKey(subkey_name);
-                Console.WriteLine(subkey.GetValue("DisplayName"));
-                if(subkey.GetValue("DisplayName") != null)
+                if (subkey.GetValue("DisplayName") != null)
                 {
-                    if (subkey.GetValue("DisplayName").ToString().Contains(this.Softwares[0]))
-                        this.HasCitrix = true;
-
-                    if (subkey.GetValue("DisplayName").ToString().Contains(this.Softwares[1]))
-                        this.HasIDGo800Driver = true;
-
-                    if (subkey.GetValue("DisplayName").ToString().Contains(this.Softwares[2]))
-                        this.HasCitrixHDX = true;
-
-                    if (subkey.GetValue("DisplayName").ToString().Contains(this.Softwares[3]))
-                        this.HasZoomPlugin = true;
+                    Console.WriteLine(subkey.GetValue("DisplayName"));
+                    GetSoftwares(subkey);
                 }
             }
             foreach (string subkey64_name in Key2.GetSubKeyNames())
             {
                 RegistryKey subkey64 = Key2.OpenSubKey(subkey64_name);
-                Console.WriteLine(subkey64.GetValue("DisplayName"));
                 if (subkey64.GetValue("DisplayName") != null)
                 {
-                    if (subkey64.GetValue("DisplayName").ToString().Contains(this.Softwares[0]))
-                        this.HasCitrix = true;                   
-
-                    if (subkey64.GetValue("DisplayName").ToString().Contains(this.Softwares[1]))
-                        this.HasIDGo800Driver = true;
-
-                    if (subkey64.GetValue("DisplayName").ToString().Contains(this.Softwares[2]))
-                        this.HasCitrixHDX = true;
-
-                    if (subkey64.GetValue("DisplayName").ToString().Contains(this.Softwares[3]))
-                        this.HasZoomPlugin = true;
+                    Console.WriteLine(subkey64.GetValue("DisplayName"));
+                    GetSoftwares(subkey64);
                 }
+            }
+            if (!HasCitrix || !HasIDGo800Driver || !HasCitrixHDX || !HasZoomPlugin)
+                FindMissingSoftwares();
+        }
+
+        private void GetSoftwares(RegistryKey subkey)
+        {
+            if (subkey.GetValue("DisplayName").ToString().Contains(this.Softwares[0]))
+                this.HasCitrix = true;
+
+            if (subkey.GetValue("DisplayName").ToString().Contains(this.Softwares[1]))
+                this.HasIDGo800Driver = true;
+
+            if (subkey.GetValue("DisplayName").ToString().Contains(this.Softwares[2]))
+                this.HasCitrixHDX = true;
+
+            if (subkey.GetValue("DisplayName").ToString().Contains(this.Softwares[3]))
+                this.HasZoomPlugin = true;
+        }
+
+        private void FindMissingSoftwares()
+        {
+            if (!HasCitrix)
+            {
+                if (File.Exists(@"C:\Program Files (x86)\Citrix\ICA Client\SelfServicePlugin\SelfService.exe"))
+                    this.HasCitrix = true;
+            }
+            if (!HasIDGo800Driver)
+            {
+                // There is no Folder
+            }
+            if (!HasCitrixHDX)
+            {
+                // There is no Folder
+            }
+            if (!HasZoomPlugin)
+            {
+                if (Directory.Exists(@"C:\Program Files (x86)\ZoomCitrixHDXMediaPlugin"))
+                    this.HasZoomPlugin = true;
             }
         }
     }
