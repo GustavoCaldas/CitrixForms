@@ -26,7 +26,7 @@ namespace SetupVerifyCS
             {
                 "Citrix Workspace",
                 "IDGo 800 Minidriver",
-                "Citrix HDX RealTime Media Engine 2.8",
+                "Citrix HDX RealTime Media Engine",
                 "Zoom Plugin for Citrix Receiver"
             };
         }
@@ -38,7 +38,7 @@ namespace SetupVerifyCS
                 RegistryKey subkey = Key1.OpenSubKey(subkey_name);
                 if (subkey.GetValue("DisplayName") != null)
                 {
-                    Console.WriteLine(subkey.GetValue("DisplayName"));
+                    // Console.WriteLine(subkey.GetValue("DisplayName"));
                     GetSoftwares(subkey);
                 }
             }
@@ -47,7 +47,7 @@ namespace SetupVerifyCS
                 RegistryKey subkey64 = Key2.OpenSubKey(subkey64_name);
                 if (subkey64.GetValue("DisplayName") != null)
                 {
-                    Console.WriteLine(subkey64.GetValue("DisplayName"));
+                    // Console.WriteLine(subkey64.GetValue("DisplayName"));
                     GetSoftwares(subkey64);
                 }
             }
