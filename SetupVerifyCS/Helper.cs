@@ -94,7 +94,7 @@ namespace SetupVerifyCS
             }
             if (!HasZoom)
             {
-                if (File.Exists(@"C:\Users\Atlas\AppData\Roaming\Zoom\bin\Zoom.exe"))
+                if (File.Exists(@"C:\Users\"+ Environment.UserName + @"\AppData\Roaming\Zoom\bin\Zoom.exe"))
                     this.HasZoom = true;
             }
         }
