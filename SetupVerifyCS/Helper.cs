@@ -10,6 +10,7 @@ namespace SetupVerifyCS
         public bool HasIDGo800Driver { get; private set; }
         public bool HasCitrixHDX { get; private set; }
         public bool HasZoomPlugin { get; private set; }
+        public bool HasZoom { get; private set; }
         public RegistryKey Key1 { get; private set; }
         public RegistryKey Key2 { get; private set; }
         public string[] Softwares { get; private set; }
@@ -22,6 +23,7 @@ namespace SetupVerifyCS
             this.HasIDGo800Driver = false;
             this.HasCitrixHDX = false;
             this.HasZoomPlugin = false;
+            this.HasZoom = false;
             this.Softwares = new string[]
             {
                 "Citrix Workspace",
@@ -51,7 +53,7 @@ namespace SetupVerifyCS
                     GetSoftwares(subkey64);
                 }
             }
-            if (!HasCitrix || !HasIDGo800Driver || !HasCitrixHDX || !HasZoomPlugin)
+            if (!HasCitrix || !HasIDGo800Driver || !HasCitrixHDX || !HasZoomPlugin || !HasZoom)
                 FindMissingSoftwares();
         }
 
@@ -89,6 +91,11 @@ namespace SetupVerifyCS
             {
                 if (Directory.Exists(@"C:\Program Files (x86)\ZoomCitrixHDXMediaPlugin"))
                     this.HasZoomPlugin = true;
+            }
+            if (!HasZoom)
+            {
+                if (File.Exists(@"C:\Users\Atlas\AppData\Roaming\Zoom\bin\Zoom.exe"))
+                    this.HasZoom = true;
             }
         }
     }

@@ -1,7 +1,7 @@
 ﻿
 namespace SetupVerifyCS
 {
-    partial class Form1
+    partial class CreditSuisseSetup
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,6 +29,7 @@ namespace SetupVerifyCS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreditSuisseSetup));
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -39,6 +40,8 @@ namespace SetupVerifyCS
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -135,11 +138,32 @@ namespace SetupVerifyCS
             this.label5.Size = new System.Drawing.Size(0, 20);
             this.label5.TabIndex = 9;
             // 
-            // Form1
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Enabled = false;
+            this.checkBox5.Location = new System.Drawing.Point(605, 228);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(18, 17);
+            this.checkBox5.TabIndex = 11;
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(360, 225);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 20);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Zoom";
+            // 
+            // CreditSuisseSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBox5);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
@@ -150,8 +174,9 @@ namespace SetupVerifyCS
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "CreditSuisseSetup";
+            this.Text = "CreditSuisseSetup";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,6 +194,8 @@ namespace SetupVerifyCS
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

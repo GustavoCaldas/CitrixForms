@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace SetupVerifyCS
 {
-    public partial class Form1 : Form
+    public partial class CreditSuisseSetup : Form
     {
-        public Form1()
+        public CreditSuisseSetup()
         {
             InitializeComponent();
         }
@@ -37,11 +37,14 @@ namespace SetupVerifyCS
                 checkBox3.Checked = true;
             if (helper.HasZoomPlugin)
                 checkBox4.Checked = true;
+            if (helper.HasZoom)
+                checkBox5.Checked = true;
 
-            if(!helper.HasCitrix ||
+            if (!helper.HasCitrix ||
                 !helper.HasIDGo800Driver ||
                 !helper.HasCitrixHDX ||
-                !helper.HasZoomPlugin)
+                !helper.HasZoomPlugin ||
+                !helper.HasZoom)
             {
                 this.label5.Text = "Oh! You are missing some required softwares!";
                 this.label5.ForeColor = Color.Red;
