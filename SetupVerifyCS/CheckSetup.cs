@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace SetupVerifyCS
 {
-    public partial class CreditSuisseSetup : Form
+    public partial class CheckSetup : Form
     {
-        public CreditSuisseSetup()
+        public CheckSetup()
         {
             InitializeComponent();
         }

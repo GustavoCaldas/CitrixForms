@@ -1,7 +1,7 @@
 ﻿
 namespace SetupVerifyCS
 {
-    partial class CreditSuisseSetup
+    partial class CheckSetup
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@ namespace SetupVerifyCS
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreditSuisseSetup));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckSetup));
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -157,7 +157,7 @@ namespace SetupVerifyCS
             this.label6.TabIndex = 10;
             this.label6.Text = "Zoom";
             // 
-            // CreditSuisseSetup
+            // CheckSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -175,8 +175,8 @@ namespace SetupVerifyCS
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "CreditSuisseSetup";
-            this.Text = "CreditSuisseSetup";
+            this.Name = "CheckSetup";
+            this.Text = "CheckSetup";
             this.ResumeLayout(false);
             this.PerformLayout();
 
