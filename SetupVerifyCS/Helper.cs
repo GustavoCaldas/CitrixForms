@@ -80,8 +80,9 @@ namespace SetupVerifyCS
             
             if (!HasZoom)
                 this.HasZoom = this.HasZoom || File.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom\bin\Zoom.exe") || 
-                    Directory.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom\bin\Zoom.exe") || 
-                    File.Exists(@"C:\Program Files\Zoom\bin\Zoom.exe");
+                    Directory.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom") || 
+                    File.Exists(@"C:\Program Files\Zoom\bin\Zoom.exe") || 
+                    Directory.Exists(@"C:\Program Files\Common Files\Zoom");
         }
     }
 }
