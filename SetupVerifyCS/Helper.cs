@@ -79,7 +79,9 @@ namespace SetupVerifyCS
                 this.HasZoomPlugin = this.HasZoomPlugin || Directory.Exists(@"C:\Program Files (x86)\ZoomCitrixHDXMediaPlugin");
             
             if (!HasZoom)
-                this.HasZoom = this.HasZoom || File.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom\bin\Zoom.exe");
+                this.HasZoom = this.HasZoom || File.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom\bin\Zoom.exe") || 
+                    Directory.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom\bin\Zoom.exe") || 
+                    File.Exists(@"C:\Program Files\Zoom\bin\Zoom.exe");
         }
     }
 }
