@@ -19,11 +19,13 @@ namespace SetupVerifyCS
         {
             this.Key1 = key1;
             this.Key2 = key2;
+            
             this.HasCitrix = false;
             this.HasIDGo800Driver = false;
             this.HasCitrixHDX = false;
             this.HasZoomPlugin = false;
             this.HasZoom = false;
+
             this.Softwares = new string[]
             {
                 "Citrix Workspace",

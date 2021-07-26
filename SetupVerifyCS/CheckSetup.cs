@@ -29,16 +29,11 @@ namespace SetupVerifyCS
             Helper helper = new Helper(key, key64);
             helper.FindRequiredSoftwares();
 
-            if (helper.HasCitrix)
-                checkBox1.Checked = true;
-            if (helper.HasIDGo800Driver)
-                checkBox2.Checked = true;
-            if (helper.HasCitrixHDX)
-                checkBox3.Checked = true;
-            if (helper.HasZoomPlugin)
-                checkBox4.Checked = true;
-            if (helper.HasZoom)
-                checkBox5.Checked = true;
+            checkBox1.Checked = helper.HasCitrix;
+            checkBox2.Checked = helper.HasIDGo800Driver;
+            checkBox3.Checked = helper.HasCitrixHDX;
+            checkBox4.Checked = helper.HasZoomPlugin;
+            checkBox5.Checked = helper.HasZoom;
 
             if (!helper.HasCitrix ||
                 !helper.HasIDGo800Driver ||
