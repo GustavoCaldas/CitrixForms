@@ -9,46 +9,33 @@
 <p>
 
 ---
-
-
-
-#### Pré requisitos
-* 7Zip ou algum descompactador (.zip)
-* Git (caso queria clonar o repositório)
-
----
-
-#### Como eu utilizo o software na minha máquina local ?
+#### Como eu posso utilizar o software na minha máquina local ?
 
 * Vá em releases
 
 ![releases](SetupVerifyCS/assets/releases.JPG)
 
-* Baixe a última versão .zip
+* Baixe a última versão executável (.exe)
 
-![releases](SetupVerifyCS/assets/releasezip.JPG)
+![releases](SetupVerifyCS/assets/releases(1).JPG)
 
-* descompacte em sua máquina
+* permita que seu navegador baixe o software
 
-![releases](SetupVerifyCS/assets/extract.JPG)
+![releases](SetupVerifyCS/assets/keep.JPG)
+![releases](SetupVerifyCS/assets/keep(1).JPG)
 
-* entre na pasta até chegar no arquivo **SetupVerifyCS.exe** (Release/netcoreapp3.1/publish)
+* abra o terminal na pasta
 
-![releases](SetupVerifyCS/assets/path.JPG)
+![releases](SetupVerifyCS/assets/download.JPG)
+![releases](SetupVerifyCS/assets/download(1).JPG)
 
 * execute o comando abaixo para inicializar o software
 
 ```
-./SetupVerifyCS.exe
+SetupVerifyCS.exe
 ```
-![releases](SetupVerifyCS/assets/console.JPG)
+![releases](SetupVerifyCS/assets/terminal.JPG)
 
-#### Como eu clono o software para a minha máquina local ?
-
-Execute no seu terminal:
-```
-git clone https://github.com/GustavoCaldas/CitrixForms.git
-```
 
 ---
 
