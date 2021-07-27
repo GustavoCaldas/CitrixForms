@@ -14,6 +14,7 @@ namespace SetupVerifyCS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // When button is clicked
             string registry_key = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
             string registry64_key = @"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall";
 
