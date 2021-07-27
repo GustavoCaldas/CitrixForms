@@ -35,6 +35,7 @@ namespace SetupVerifyCS
             };
         }
 
+        // Search on register subkeys if there's required softwares installed.
         public void FindRequiredSoftwares()
         {
             foreach (string subkey_name in Key1.GetSubKeyNames())
@@ -51,11 +52,12 @@ namespace SetupVerifyCS
                     GetSoftwaresByRegisterKey(subkey64);
             }
 
-            if (!HasCitrix || !HasIDGo800Driver || !HasCitrixHDX || !HasZoomPlugin || !HasZoom)
+            if ( !(HasCitrix && HasIDGo800Driver && HasCitrixHDX && HasZoomPlugin && HasZoom) )
                 GetSoftwaresByFolder();
         }
 
-        private void GetSoftwaresByRegisterKey(RegistryKey subkey)
+        // Try to get softwares listed on this.Softwares through RegisterKey.
+        public void GetSoftwaresByRegisterKey(RegistryKey subkey)
         {
             this.HasCitrix = this.HasCitrix || subkey.GetValue("DisplayName").ToString().Contains(this.Softwares[0]);
             this.HasIDGo800Driver = this.HasIDGo800Driver || subkey.GetValue("DisplayName").ToString().Contains(this.Softwares[1]);
@@ -63,28 +65,34 @@ namespace SetupVerifyCS
             this.HasZoomPlugin = this.HasZoomPlugin || subkey.GetValue("DisplayName").ToString().Contains(this.Softwares[3]);
         }
 
-        private void GetSoftwaresByFolder()
+        // Try to get softwares listed on this.Softwares through Folders.
+        public void GetSoftwaresByFolder()
         {
             if (!HasCitrix)
-                this.HasCitrix = this.HasCitrix || File.Exists(@"C:\Program Files (x86)\Citrix\ICA Client\SelfServicePlugin\SelfService.exe");
+                this.HasCitrix = this.HasCitrix || 
+                File.Exists(@"C:\Program Files (x86)\Citrix\ICA Client\SelfServicePlugin\SelfService.exe");
             
-            if (!HasIDGo800Driver)
-            {
-                // There is no Folder
-            }
-            if (!HasCitrixHDX)
-            {
-                // There is no Folder
-            }
+            // There's no folder
+            if (!HasIDGo800Driver) {  }
+            // There's no folder
+            if (!HasCitrixHDX) {  }
 
             if (!HasZoomPlugin)
-                this.HasZoomPlugin = this.HasZoomPlugin || Directory.Exists(@"C:\Program Files (x86)\ZoomCitrixHDXMediaPlugin");
+                this.HasZoomPlugin = this.HasZoomPlugin || 
+                Directory.Exists(@"C:\Program Files (x86)\ZoomCitrixHDXMediaPlugin");
             
             if (!HasZoom)
-                this.HasZoom = this.HasZoom || File.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom\bin\Zoom.exe") || 
+                this.HasZoom = this.HasZoom || 
+                    File.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom\bin\Zoom.exe") || 
                     Directory.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom") || 
                     File.Exists(@"C:\Program Files\Zoom\bin\Zoom.exe") || 
                     Directory.Exists(@"C:\Program Files\Common Files\Zoom");
+        }
+
+        // If there's all softwares installed return true.
+        public bool HasSoftwaresInstalled()
+        {
+            return HasCitrix && HasIDGo800Driver && HasCitrixHDX && HasZoomPlugin && HasZoom;
         }
     }
 }
