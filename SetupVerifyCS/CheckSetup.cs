@@ -30,7 +30,7 @@ namespace SetupVerifyCS
             checkBox4.Checked = helper.HasZoomPlugin;
             checkBox5.Checked = helper.HasZoom;
 
-            if ( helper.HasSoftwaresInstalled() )
+            if (helper.HasSoftwaresInstalled())
             {
                 this.label5.Text = "All Good!";
                 this.label5.ForeColor = Color.Green;
