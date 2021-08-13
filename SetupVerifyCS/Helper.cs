@@ -19,7 +19,7 @@ namespace SetupVerifyCS
         {
             this.Key1 = key1;
             this.Key2 = key2;
-            
+
             this.HasCitrix = false;
             this.HasIDGo800Driver = false;
             this.HasCitrixHDX = false;
@@ -52,7 +52,7 @@ namespace SetupVerifyCS
                     GetSoftwaresByRegisterKey(subkey64);
             }
 
-            if ( !(HasCitrix && HasIDGo800Driver && HasCitrixHDX && HasZoomPlugin && HasZoom) )
+            if (!(HasCitrix && HasIDGo800Driver && HasCitrixHDX && HasZoomPlugin && HasZoom))
                 GetSoftwaresByFolder();
         }
 
@@ -69,23 +69,23 @@ namespace SetupVerifyCS
         public void GetSoftwaresByFolder()
         {
             if (!HasCitrix)
-                this.HasCitrix = this.HasCitrix || 
+                this.HasCitrix = this.HasCitrix ||
                 File.Exists(@"C:\Program Files (x86)\Citrix\ICA Client\SelfServicePlugin\SelfService.exe");
-            
+
             // There's no folder
-            if (!HasIDGo800Driver) {  }
+            if (!HasIDGo800Driver) { }
             // There's no folder
-            if (!HasCitrixHDX) {  }
+            if (!HasCitrixHDX) { }
 
             if (!HasZoomPlugin)
-                this.HasZoomPlugin = this.HasZoomPlugin || 
+                this.HasZoomPlugin = this.HasZoomPlugin ||
                 Directory.Exists(@"C:\Program Files (x86)\ZoomCitrixHDXMediaPlugin");
-            
+
             if (!HasZoom)
-                this.HasZoom = this.HasZoom || 
-                    File.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom\bin\Zoom.exe") || 
-                    Directory.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom") || 
-                    File.Exists(@"C:\Program Files\Zoom\bin\Zoom.exe") || 
+                this.HasZoom = this.HasZoom ||
+                    File.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom\bin\Zoom.exe") ||
+                    Directory.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom") ||
+                    File.Exists(@"C:\Program Files\Zoom\bin\Zoom.exe") ||
                     Directory.Exists(@"C:\Program Files\Common Files\Zoom");
         }
 
