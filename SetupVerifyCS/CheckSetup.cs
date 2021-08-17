@@ -39,6 +39,49 @@ namespace SetupVerifyCS
 
             this.label5.Text = "Oh! You are missing some required softwares!";
             this.label5.ForeColor = Color.Red;
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        // Arrasta o fomulário
+
+        bool mouseClicked;
+        Point clickedAt;
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseClicked)
+            {
+                this.Location = new Point(Cursor.Position.X - clickedAt.X, Cursor.Position.Y - clickedAt.Y);
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+                return;
+
+            mouseClicked = true;
+            clickedAt = e.Location;
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseClicked = false;
         }
     }
 }
