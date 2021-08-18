@@ -21,7 +21,9 @@ namespace SetupVerifyCS
             RegistryKey key = Registry.LocalMachine.OpenSubKey(registry_key);
             RegistryKey key64 = Registry.LocalMachine.OpenSubKey(registry64_key);
 
-            Helper helper = new Helper(key, key64);
+            string[] software = null;
+
+            Helper helper = new Helper(key, key64, software);
             helper.FindRequiredSoftwares();
 
             checkBox1.Checked = helper.HasCitrix;
@@ -30,7 +32,7 @@ namespace SetupVerifyCS
             checkBox4.Checked = helper.HasZoomPlugin;
             checkBox5.Checked = helper.HasZoom;
 
-            if ( helper.HasSoftwaresInstalled() )
+            if (helper.HasSoftwaresInstalled())
             {
                 this.label5.Text = "All Good!";
                 this.label5.ForeColor = Color.Green;
@@ -39,7 +41,7 @@ namespace SetupVerifyCS
 
             this.label5.Text = "Oh! You are missing some required softwares!";
             this.label5.ForeColor = Color.Red;
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
