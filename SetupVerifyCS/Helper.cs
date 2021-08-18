@@ -82,11 +82,12 @@ namespace SetupVerifyCS
                 Directory.Exists(@"C:\Program Files (x86)\ZoomCitrixHDXMediaPlugin");
             
             if (!HasZoom)
-                this.HasZoom = this.HasZoom || 
-                    File.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom\bin\Zoom.exe") || 
-                    Directory.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom") || 
-                    File.Exists(@"C:\Program Files\Zoom\bin\Zoom.exe") || 
-                    Directory.Exists(@"C:\Program Files\Common Files\Zoom");
+                this.HasZoom = this.HasZoom ||
+                    File.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom\bin\Zoom.exe") ||
+                    Directory.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom") ||
+                    File.Exists(@"C:\Program Files\Zoom\bin\Zoom.exe") ||
+                    Directory.Exists(@"C:\Program Files\Common Files\Zoom") ||
+                    Directory.Exists(@"C:\Program Files (x86)\ZoomVDI\bin");
         }
 
         // If there's all softwares installed return true.
