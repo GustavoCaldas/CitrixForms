@@ -9,7 +9,6 @@ namespace SetupVerifyCS
 
         public void GetSoftwaresByFolderZoom(string FolderValue)
         {
-            bool pathSoftware = false;
             if (FolderValue == null)
             {
                 this.pathSReturn = File.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\Zoom\bin\Zoom.exe") ||
