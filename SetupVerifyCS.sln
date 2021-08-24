@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SetupVerifyCS", "SetupVerifyCS\SetupVerifyCS.csproj", "{51B45B28-DE8A-4650-BB6D-0867263559A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetupVerifyCSTest", "TestSetupVerifyCS\SetupVerifyCSTest.csproj", "{0719763B-219A-4574-9E7C-BFA63F5E6B1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SetupVerifyCSTest", "TestSetupVerifyCS\SetupVerifyCSTest.csproj", "{0719763B-219A-4574-9E7C-BFA63F5E6B1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
